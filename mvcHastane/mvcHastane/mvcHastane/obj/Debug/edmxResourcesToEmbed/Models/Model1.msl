@@ -1,0 +1,66 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="db_HastaneYonetimSistemiModelStoreContainer" CdmEntityContainer="db_HastaneYonetimSistemiEntities">
+    <EntitySetMapping Name="sysdiagrams">
+      <EntityTypeMapping TypeName="db_HastaneYonetimSistemiModel.sysdiagrams">
+        <MappingFragment StoreEntitySet="sysdiagrams">
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+          <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+          <ScalarProperty Name="version" ColumnName="version" />
+          <ScalarProperty Name="definition" ColumnName="definition" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbl_Doktorlar">
+      <EntityTypeMapping TypeName="db_HastaneYonetimSistemiModel.tbl_Doktorlar">
+        <MappingFragment StoreEntitySet="tbl_Doktorlar">
+          <ScalarProperty Name="doktorID" ColumnName="doktorID" />
+          <ScalarProperty Name="doktorAd" ColumnName="doktorAd" />
+          <ScalarProperty Name="doktorSoyad" ColumnName="doktorSoyad" />
+          <ScalarProperty Name="doktorUzmanlik" ColumnName="doktorUzmanlik" />
+          <ScalarProperty Name="durum" ColumnName="durum" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbl_Hasta">
+      <EntityTypeMapping TypeName="db_HastaneYonetimSistemiModel.tbl_Hasta">
+        <MappingFragment StoreEntitySet="tbl_Hasta">
+          <ScalarProperty Name="hastaID" ColumnName="hastaID" />
+          <ScalarProperty Name="hastaAd" ColumnName="hastaAd" />
+          <ScalarProperty Name="hastaSoyad" ColumnName="hastaSoyad" />
+          <ScalarProperty Name="hastaTc" ColumnName="hastaTc" />
+          <ScalarProperty Name="hastaYas" ColumnName="hastaYas" />
+          <ScalarProperty Name="hastaCinsiyet" ColumnName="hastaCinsiyet" />
+          <ScalarProperty Name="kronikRahatsizlik" ColumnName="kronikRahatsizlik" />
+          <ScalarProperty Name="hastaTelefon" ColumnName="hastaTelefon" />
+          <ScalarProperty Name="kayitTarih" ColumnName="kayitTarih" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbl_Randevu">
+      <EntityTypeMapping TypeName="db_HastaneYonetimSistemiModel.tbl_Randevu">
+        <MappingFragment StoreEntitySet="tbl_Randevu">
+          <ScalarProperty Name="randevuID" ColumnName="randevuID" />
+          <ScalarProperty Name="hastaID" ColumnName="hastaID" />
+          <ScalarProperty Name="doktorID" ColumnName="doktorID" />
+          <ScalarProperty Name="olusturmaTarih" ColumnName="olusturmaTarih" />
+          <ScalarProperty Name="randevuTarih" ColumnName="randevuTarih" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbl_Tedavi">
+      <EntityTypeMapping TypeName="db_HastaneYonetimSistemiModel.tbl_Tedavi">
+        <MappingFragment StoreEntitySet="tbl_Tedavi">
+          <ScalarProperty Name="tedaviID" ColumnName="tedaviID" />
+          <ScalarProperty Name="hastaID" ColumnName="hastaID" />
+          <ScalarProperty Name="doktorID" ColumnName="doktorID" />
+          <ScalarProperty Name="tedaviIcerik" ColumnName="tedaviIcerik" />
+          <ScalarProperty Name="tarih" ColumnName="tarih" />
+          <ScalarProperty Name="recete" ColumnName="recete" />
+          <ScalarProperty Name="fiyat" ColumnName="fiyat" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

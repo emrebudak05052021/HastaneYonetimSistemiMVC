@@ -1,0 +1,48 @@
+﻿@using mvcHastane.Models
+@model mvcHastane.Models.tbl_Randevu
+@{
+    ViewBag.Title = "RandevuGetir";
+    Layout = "~/Views/Shared/_MainLayout.cshtml";
+}
+
+@using (Html.BeginForm("Guncelle", "Randevu", FormMethod.Post))
+{
+    <table class="table table-bordered table-dark" style="background-color:#1c1c1c; color:white; border-radius:15px;">
+
+        <tr>
+            <td>ŞU RANDEVU İD'SİNE':</td>
+        </tr>
+        <tr>
+            <td>@Html.TextBoxFor(x => x.randevuID, new { @class = "form-control", @type = "datetime" })</td>
+        </tr>
+        <tr>
+            <td>ŞU HASTA:</td>
+        </tr>
+        <tr>
+            <td>@Html.DropDownListFor(x => x.hastaID, (List<SelectListItem>)ViewBag.dgrhst, new { @class = "form-control" })
+        </tr>
+
+        <tr>
+            <td>ŞU DOKTORA:</td>
+        </tr>
+        <tr>
+            <td>@Html.DropDownListFor(x => x.doktorID, (List<SelectListItem>)ViewBag.dgrdkt, new { @class = "form-control" })</td>
+        </tr>
+
+        <tr>
+            <td>ŞU TARİHTE:</td>
+        </tr>
+        <tr>
+            <td>@Html.TextBoxFor(x => x.olusturmaTarih, new { @class = "form-control", @type = "datetime" })</td>
+        </tr>
+
+        <tr>
+            <td>ŞU TARİHE:</td>
+        </tr>
+        <tr>
+            <td>@Html.TextBoxFor(x => x.randevuTarih, new { @class = "form-control", @type = "datetime" })</td>
+        </tr>
+    </table>
+    <button class="btn btn-warning" type="submit">RANDEVUYU GÜNCELLE</button>
+}
+

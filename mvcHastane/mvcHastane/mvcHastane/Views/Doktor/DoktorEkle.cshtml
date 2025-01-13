@@ -1,0 +1,40 @@
+﻿@using mvcHastane.Models
+@model mvcHastane.Models.tbl_Doktorlar
+@{
+    ViewBag.Title = "DoktorEkle";
+    Layout = "~/Views/Shared/_MainLayout.cshtml";
+}
+
+<form method="post" class="form-group">
+    <table class="table table-bordered table-dark" style="background-color:#1c1c1c; color:white; border-radius:15px;">
+        <tr>
+            <td>DOKTOR ADI:</td>
+        </tr>
+        <tr>
+            <td>@Html.TextBoxFor(x => x.doktorAd, new { @class = "form-control" })</td>
+        </tr>
+
+        <tr>
+            <td>DOKTOR SOYADI:</td>
+        </tr>
+        <tr>
+            <td>@Html.TextBoxFor(x => x.doktorSoyad, new { @class = "form-control" })</td>
+        </tr>
+
+        <tr>
+            <td>DOKTOR UZMANLIĞI:</td>
+        </tr>
+        <tr>
+            <td>@Html.TextBoxFor(x => x.doktorUzmanlik, new { @class = "form-control" })</td>
+        </tr>
+
+        <tr>
+            <td>DOKTOR AKTİF ÇALIŞMA DURUMU:</td>
+        </tr>
+        <tr>
+            <td>@Html.TextBoxFor(x => x.durum, new { @class = "form-control" })</td>
+        </tr>
+    </table>
+    <button class="btn btn-warning" type="submit">YENİ DOKTOR EKLE</button>
+</form>
+

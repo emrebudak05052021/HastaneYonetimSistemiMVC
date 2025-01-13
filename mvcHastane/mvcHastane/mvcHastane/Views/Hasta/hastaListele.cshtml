@@ -1,0 +1,48 @@
+﻿@using mvcHastane.Models
+@model List<mvcHastane.Models.tbl_Hasta>
+@{
+    ViewBag.Title = "hastaListele";
+    Layout = "~/Views/Shared/_MainLayout.cshtml";
+}
+
+<!DOCTYPE html>
+
+<div style="background-color:#1c1c1c; color:white; border-radius:15px;">
+    <h1>HASTA LİSTESİ</h1>
+</div>
+<table class="table table-bordered table-dark" style="background-color:#1c1c1c; color:white; border-radius:15px;">
+    <thead>
+        <tr>
+            <th>HASTA İD</th>
+            <th>ADI</th>
+            <th>SOYADI</th>
+            <th>HASTA TC</th>
+            <th>YAŞI</th>
+            <th>CİNSİYETİ</th>
+            <th>KRONİK RAHATSIZLIĞI</th>
+            <th>TELEFON NUMARASI</th>
+            <th>KAYIT TARİHİ</th>
+            <th>SİL</th>
+            <th>GÜNCELLE</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var hst in Model)
+        {
+            <tr>
+                <th style="color:#FFC300;">@hst.hastaID</th>
+                <td>@hst.hastaAd</td>
+                <td>@hst.hastaSoyad</td>
+                <td>@hst.hastaTc</td>
+                <td>@hst.hastaYas</td>
+                <td>@hst.hastaCinsiyet</td>
+                <td>@hst.kronikRahatsizlik</td>
+                <td>@hst.hastaTelefon</td>
+                <td>@hst.kayitTarih</td>
+                <td><a href="/Hasta/Sil/@hst.hastaID" class="btn btn-danger">SİL</a></td>
+                <td><a href="/Hasta/hastaGetir/@hst.hastaID" class="btn btn-primary">GÜNCELLE</a></td>
+            </tr>
+        }
+    </tbody>
+</table>
+<a href="/Hasta/HastaEkle" class=" btn btn-warning">YENİ HASTA EKLE</a>

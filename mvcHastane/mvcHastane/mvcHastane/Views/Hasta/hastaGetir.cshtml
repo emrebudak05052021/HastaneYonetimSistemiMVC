@@ -1,0 +1,49 @@
+﻿@model mvcHastane.Models.tbl_Hasta
+@{
+    ViewBag.Title = "hastaGetir";
+    Layout = "~/Views/Shared/_MainLayout.cshtml";
+}
+
+
+@using (Html.BeginForm("Guncelle", "Hasta", FormMethod.Post))
+{
+    <table class="table table-bordered table-dark" style="background-color:#1c1c1c; color:white; border-radius:15px;">
+        <tr>
+            <td>@Html.LabelFor(x => x.hastaID)</td>
+            <td>@Html.TextBoxFor(x => x.hastaID, new { @class = "form-control" })</td>
+        </tr>
+        <tr>
+            <td>@Html.LabelFor(x => x.hastaAd)</td>
+            <td>@Html.TextBoxFor(x => x.hastaAd, new { @class = "form-control" })</td>
+        </tr>
+        <tr>
+            <td>@Html.LabelFor(x => x.hastaSoyad)</td>
+            <td>@Html.TextBoxFor(x => x.hastaSoyad, new { @class = "form-control" })</td>
+        </tr>
+        <tr>
+            <td>@Html.LabelFor(x => x.hastaTc)</td>
+            <td>@Html.TextBoxFor(x => x.hastaTc, new { @class = "form-control" })</td>
+        </tr>
+        <tr>
+            <td>@Html.LabelFor(x => x.hastaYas)</td>
+            <td>@Html.TextBoxFor(x => x.hastaYas, new { @class = "form-control" })</td>
+        </tr>
+        <tr>
+            <td>@Html.LabelFor(x => x.hastaCinsiyet)</td>
+            <td>@Html.TextBoxFor(x => x.hastaCinsiyet, new { @class = "form-control" })</td>
+        </tr>
+        <tr>
+            <td>@Html.LabelFor(x => x.kronikRahatsizlik)</td>
+            <td>@Html.TextBoxFor(x => x.kronikRahatsizlik, new { @class = "form-control" })</td>
+        </tr>
+        <tr>
+            <td>@Html.LabelFor(x => x.hastaTelefon)</td>
+            <td>@Html.TextBoxFor(x => x.hastaTelefon, new { @class = "form-control" })</td>
+        </tr>
+        <tr>
+            <td>@Html.LabelFor(x => x.kayitTarih)</td>
+            <td>@Html.TextBoxFor(x => x.kayitTarih, new { @class = "form-control" , @type="datetime"})</td>
+        </tr>
+    </table>
+    <button class="btn btn-warning">HASTAYI GÜNCELLE</button>
+}

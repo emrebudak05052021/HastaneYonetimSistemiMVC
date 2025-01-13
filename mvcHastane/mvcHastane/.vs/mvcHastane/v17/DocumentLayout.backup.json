@@ -1,0 +1,96 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\Emre BUDAK\\Desktop\\mvcHastane\\mvcHastane\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{F598582E-E604-4021-A261-102F164A725B}|mvcHastane\\mvcHastane.csproj|c:\\users\\emre budak\\desktop\\mvchastane\\mvchastane\\mvchastane\\views\\home\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{F598582E-E604-4021-A261-102F164A725B}|mvcHastane\\mvcHastane.csproj|solutionrelative:mvchastane\\views\\home\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F598582E-E604-4021-A261-102F164A725B}|mvcHastane\\mvcHastane.csproj|c:\\users\\emre budak\\desktop\\mvchastane\\mvchastane\\mvchastane\\views\\randevu\\randevulistele.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{F598582E-E604-4021-A261-102F164A725B}|mvcHastane\\mvcHastane.csproj|solutionrelative:mvchastane\\views\\randevu\\randevulistele.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F598582E-E604-4021-A261-102F164A725B}|mvcHastane\\mvcHastane.csproj|c:\\users\\emre budak\\desktop\\mvchastane\\mvchastane\\mvchastane\\views\\hasta\\hastalistele.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{F598582E-E604-4021-A261-102F164A725B}|mvcHastane\\mvcHastane.csproj|solutionrelative:mvchastane\\views\\hasta\\hastalistele.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F598582E-E604-4021-A261-102F164A725B}|mvcHastane\\mvcHastane.csproj|c:\\users\\emre budak\\desktop\\mvchastane\\mvchastane\\mvchastane\\views\\tedavi\\tedavilistele.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{F598582E-E604-4021-A261-102F164A725B}|mvcHastane\\mvcHastane.csproj|solutionrelative:mvchastane\\views\\tedavi\\tedavilistele.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 1,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedHeight": 200,
+          "SelectedChildIndex": 2,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:1:0:{e8b06f52-6d01-11d2-aa7d-00c04f990343}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{aa2115a1-9712-457b-9047-dbb71ca2cdd2}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "C:\\Users\\Emre BUDAK\\Desktop\\mvcHastane\\mvcHastane\\mvcHastane\\Views\\Home\\Index.cshtml",
+              "RelativeDocumentMoniker": "mvcHastane\\Views\\Home\\Index.cshtml",
+              "ToolTip": "C:\\Users\\Emre BUDAK\\Desktop\\mvcHastane\\mvcHastane\\mvcHastane\\Views\\Home\\Index.cshtml",
+              "RelativeToolTip": "mvcHastane\\Views\\Home\\Index.cshtml",
+              "ViewState": "AgIAAAkAAAAAAAAAAAAAABMAAAAnAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-01-13T05:00:49.939Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "tedaviListele.cshtml",
+              "DocumentMoniker": "C:\\Users\\Emre BUDAK\\Desktop\\mvcHastane\\mvcHastane\\mvcHastane\\Views\\Tedavi\\tedaviListele.cshtml",
+              "RelativeDocumentMoniker": "mvcHastane\\Views\\Tedavi\\tedaviListele.cshtml",
+              "ToolTip": "C:\\Users\\Emre BUDAK\\Desktop\\mvcHastane\\mvcHastane\\mvcHastane\\Views\\Tedavi\\tedaviListele.cshtml",
+              "RelativeToolTip": "mvcHastane\\Views\\Tedavi\\tedaviListele.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAAOAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-01-13T04:57:47.621Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "randevuListele.cshtml",
+              "DocumentMoniker": "C:\\Users\\Emre BUDAK\\Desktop\\mvcHastane\\mvcHastane\\mvcHastane\\Views\\Randevu\\randevuListele.cshtml",
+              "RelativeDocumentMoniker": "mvcHastane\\Views\\Randevu\\randevuListele.cshtml",
+              "ToolTip": "C:\\Users\\Emre BUDAK\\Desktop\\mvcHastane\\mvcHastane\\mvcHastane\\Views\\Randevu\\randevuListele.cshtml",
+              "RelativeToolTip": "mvcHastane\\Views\\Randevu\\randevuListele.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-01-13T04:57:40.47Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "hastaListele.cshtml",
+              "DocumentMoniker": "C:\\Users\\Emre BUDAK\\Desktop\\mvcHastane\\mvcHastane\\mvcHastane\\Views\\Hasta\\hastaListele.cshtml",
+              "RelativeDocumentMoniker": "mvcHastane\\Views\\Hasta\\hastaListele.cshtml",
+              "ToolTip": "C:\\Users\\Emre BUDAK\\Desktop\\mvcHastane\\mvcHastane\\mvcHastane\\Views\\Hasta\\hastaListele.cshtml",
+              "RelativeToolTip": "mvcHastane\\Views\\Hasta\\hastaListele.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAANAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-01-13T04:57:30.568Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

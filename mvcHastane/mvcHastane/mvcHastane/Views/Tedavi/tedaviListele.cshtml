@@ -1,0 +1,40 @@
+﻿@using mvcHastane.Models
+@model List<mvcHastane.Models.tbl_Tedavi>
+@{
+    ViewBag.Title = "tedaviListele";
+    Layout = "~/Views/Shared/_MainLayout.cshtml";
+}
+<div style="background-color:#1c1c1c; color:white; border-radius:15px;">
+    <h1>TEDAVİ LİSTESİ</h1>
+</div>
+<table class="table table-bordered table-dark" style="background-color:#1c1c1c; color:white; border-radius:15px;">
+    <thead>
+        <tr>
+            <th>TEDAVİ İD</th>
+            <th>ŞU HASTA</th>
+            <th>ŞU DOKTORA</th>
+            <th>UYGULANAN TEDAVİ</th>
+            <th>ŞU TARİHTE</th>
+            <th>REÇETE</th>
+            <th>TOPLAM TEDAVİ ÜCRETİ</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var rnd in Model)
+        {
+            <tr>
+                <th style="color:#FFC300;">@rnd.tedaviID</th>
+                <td>@rnd.tbl_Hasta.hastaAd &nbsp; @rnd.tbl_Hasta.hastaSoyad</td>
+                <td>@rnd.tbl_Doktorlar.doktorAd &nbsp; @rnd.tbl_Doktorlar.doktorSoyad</td>
+                <td style="color:darkred;">@rnd.tedaviIcerik</td>
+                <td>@rnd.tarih</td>
+                <td>@rnd.recete</td>
+                <td>@rnd.fiyat</td>
+                <td><a href="/Tedavi/Sil/@rnd.tedaviID" class="btn btn-danger">SİL</a></td>
+                <td><a href="/Tedavi/TedaviGetir/@rnd.tedaviID" class="btn btn-primary">GÜNCELLE</a></td>
+            </tr>
+        }
+    </tbody>
+</table>
+<a href="/Tedavi/TedaviEkle" class=" btn btn-warning">YENİ TEDAVİ EKLE</a>
+

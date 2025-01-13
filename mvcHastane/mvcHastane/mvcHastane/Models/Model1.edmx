@@ -1,0 +1,365 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="db_HastaneYonetimSistemiModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="principal_id" Type="int" Nullable="false" />
+          <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="version" Type="int" />
+          <Property Name="definition" Type="varbinary(max)" />
+        </EntityType>
+        <EntityType Name="tbl_Doktorlar">
+          <Key>
+            <PropertyRef Name="doktorID" />
+          </Key>
+          <Property Name="doktorID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="doktorAd" Type="varchar" MaxLength="50" />
+          <Property Name="doktorSoyad" Type="varchar" MaxLength="50" />
+          <Property Name="doktorUzmanlik" Type="varchar" MaxLength="50" />
+          <Property Name="durum" Type="bit" />
+        </EntityType>
+        <EntityType Name="tbl_Hasta">
+          <Key>
+            <PropertyRef Name="hastaID" />
+          </Key>
+          <Property Name="hastaID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="hastaAd" Type="varchar" MaxLength="50" />
+          <Property Name="hastaSoyad" Type="varchar" MaxLength="50" />
+          <Property Name="hastaTc" Type="char" MaxLength="11" />
+          <Property Name="hastaYas" Type="tinyint" />
+          <Property Name="hastaCinsiyet" Type="varchar" MaxLength="6" />
+          <Property Name="kronikRahatsizlik" Type="bit" />
+          <Property Name="hastaTelefon" Type="char" MaxLength="11" />
+          <Property Name="kayitTarih" Type="datetime" />
+        </EntityType>
+        <EntityType Name="tbl_Randevu">
+          <Key>
+            <PropertyRef Name="randevuID" />
+          </Key>
+          <Property Name="randevuID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="hastaID" Type="int" />
+          <Property Name="doktorID" Type="int" />
+          <Property Name="olusturmaTarih" Type="datetime" />
+          <Property Name="randevuTarih" Type="datetime" />
+        </EntityType>
+        <EntityType Name="tbl_Tedavi">
+          <Key>
+            <PropertyRef Name="tedaviID" />
+          </Key>
+          <Property Name="tedaviID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="hastaID" Type="int" />
+          <Property Name="doktorID" Type="int" />
+          <Property Name="tedaviIcerik" Type="varchar" MaxLength="100" />
+          <Property Name="tarih" Type="datetime" />
+          <Property Name="recete" Type="varchar" MaxLength="50" />
+          <Property Name="fiyat" Type="decimal" Precision="18" Scale="2" />
+        </EntityType>
+        <Association Name="FK_tbl_Randevu_tbl_Doktorlar">
+          <End Role="tbl_Doktorlar" Type="Self.tbl_Doktorlar" Multiplicity="0..1" />
+          <End Role="tbl_Randevu" Type="Self.tbl_Randevu" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbl_Doktorlar">
+              <PropertyRef Name="doktorID" />
+            </Principal>
+            <Dependent Role="tbl_Randevu">
+              <PropertyRef Name="doktorID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tbl_Randevu_tbl_Hasta">
+          <End Role="tbl_Hasta" Type="Self.tbl_Hasta" Multiplicity="0..1" />
+          <End Role="tbl_Randevu" Type="Self.tbl_Randevu" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbl_Hasta">
+              <PropertyRef Name="hastaID" />
+            </Principal>
+            <Dependent Role="tbl_Randevu">
+              <PropertyRef Name="hastaID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tbl_Tedavi_tbl_Doktorlar">
+          <End Role="tbl_Doktorlar" Type="Self.tbl_Doktorlar" Multiplicity="0..1" />
+          <End Role="tbl_Tedavi" Type="Self.tbl_Tedavi" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbl_Doktorlar">
+              <PropertyRef Name="doktorID" />
+            </Principal>
+            <Dependent Role="tbl_Tedavi">
+              <PropertyRef Name="doktorID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tbl_Tedavi_tbl_Hasta">
+          <End Role="tbl_Hasta" Type="Self.tbl_Hasta" Multiplicity="0..1" />
+          <End Role="tbl_Tedavi" Type="Self.tbl_Tedavi" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbl_Hasta">
+              <PropertyRef Name="hastaID" />
+            </Principal>
+            <Dependent Role="tbl_Tedavi">
+              <PropertyRef Name="hastaID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="db_HastaneYonetimSistemiModelStoreContainer">
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tbl_Doktorlar" EntityType="Self.tbl_Doktorlar" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tbl_Hasta" EntityType="Self.tbl_Hasta" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tbl_Randevu" EntityType="Self.tbl_Randevu" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tbl_Tedavi" EntityType="Self.tbl_Tedavi" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_tbl_Randevu_tbl_Doktorlar" Association="Self.FK_tbl_Randevu_tbl_Doktorlar">
+            <End Role="tbl_Doktorlar" EntitySet="tbl_Doktorlar" />
+            <End Role="tbl_Randevu" EntitySet="tbl_Randevu" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tbl_Randevu_tbl_Hasta" Association="Self.FK_tbl_Randevu_tbl_Hasta">
+            <End Role="tbl_Hasta" EntitySet="tbl_Hasta" />
+            <End Role="tbl_Randevu" EntitySet="tbl_Randevu" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tbl_Tedavi_tbl_Doktorlar" Association="Self.FK_tbl_Tedavi_tbl_Doktorlar">
+            <End Role="tbl_Doktorlar" EntitySet="tbl_Doktorlar" />
+            <End Role="tbl_Tedavi" EntitySet="tbl_Tedavi" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tbl_Tedavi_tbl_Hasta" Association="Self.FK_tbl_Tedavi_tbl_Hasta">
+            <End Role="tbl_Hasta" EntitySet="tbl_Hasta" />
+            <End Role="tbl_Tedavi" EntitySet="tbl_Tedavi" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="db_HastaneYonetimSistemiModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="principal_id" Type="Int32" Nullable="false" />
+          <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="version" Type="Int32" />
+          <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+        </EntityType>
+        <EntityType Name="tbl_Doktorlar">
+          <Key>
+            <PropertyRef Name="doktorID" />
+          </Key>
+          <Property Name="doktorID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="doktorAd" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="doktorSoyad" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="doktorUzmanlik" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="durum" Type="Boolean" />
+          <NavigationProperty Name="tbl_Randevu" Relationship="Self.FK_tbl_Randevu_tbl_Doktorlar" FromRole="tbl_Doktorlar" ToRole="tbl_Randevu" />
+          <NavigationProperty Name="tbl_Tedavi" Relationship="Self.FK_tbl_Tedavi_tbl_Doktorlar" FromRole="tbl_Doktorlar" ToRole="tbl_Tedavi" />
+        </EntityType>
+        <EntityType Name="tbl_Hasta">
+          <Key>
+            <PropertyRef Name="hastaID" />
+          </Key>
+          <Property Name="hastaID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="hastaAd" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="hastaSoyad" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="hastaTc" Type="String" MaxLength="11" FixedLength="true" Unicode="false" />
+          <Property Name="hastaYas" Type="Byte" />
+          <Property Name="hastaCinsiyet" Type="String" MaxLength="6" FixedLength="false" Unicode="false" />
+          <Property Name="kronikRahatsizlik" Type="Boolean" />
+          <Property Name="hastaTelefon" Type="String" MaxLength="11" FixedLength="true" Unicode="false" />
+          <Property Name="kayitTarih" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="tbl_Randevu" Relationship="Self.FK_tbl_Randevu_tbl_Hasta" FromRole="tbl_Hasta" ToRole="tbl_Randevu" />
+          <NavigationProperty Name="tbl_Tedavi" Relationship="Self.FK_tbl_Tedavi_tbl_Hasta" FromRole="tbl_Hasta" ToRole="tbl_Tedavi" />
+        </EntityType>
+        <EntityType Name="tbl_Randevu">
+          <Key>
+            <PropertyRef Name="randevuID" />
+          </Key>
+          <Property Name="randevuID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="hastaID" Type="Int32" />
+          <Property Name="doktorID" Type="Int32" />
+          <Property Name="olusturmaTarih" Type="DateTime" Precision="3" />
+          <Property Name="randevuTarih" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="tbl_Doktorlar" Relationship="Self.FK_tbl_Randevu_tbl_Doktorlar" FromRole="tbl_Randevu" ToRole="tbl_Doktorlar" />
+          <NavigationProperty Name="tbl_Hasta" Relationship="Self.FK_tbl_Randevu_tbl_Hasta" FromRole="tbl_Randevu" ToRole="tbl_Hasta" />
+        </EntityType>
+        <EntityType Name="tbl_Tedavi">
+          <Key>
+            <PropertyRef Name="tedaviID" />
+          </Key>
+          <Property Name="tedaviID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="hastaID" Type="Int32" />
+          <Property Name="doktorID" Type="Int32" />
+          <Property Name="tedaviIcerik" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="tarih" Type="DateTime" Precision="3" />
+          <Property Name="recete" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="fiyat" Type="Decimal" Precision="18" Scale="2" />
+          <NavigationProperty Name="tbl_Doktorlar" Relationship="Self.FK_tbl_Tedavi_tbl_Doktorlar" FromRole="tbl_Tedavi" ToRole="tbl_Doktorlar" />
+          <NavigationProperty Name="tbl_Hasta" Relationship="Self.FK_tbl_Tedavi_tbl_Hasta" FromRole="tbl_Tedavi" ToRole="tbl_Hasta" />
+        </EntityType>
+        <Association Name="FK_tbl_Randevu_tbl_Doktorlar">
+          <End Role="tbl_Doktorlar" Type="Self.tbl_Doktorlar" Multiplicity="0..1" />
+          <End Role="tbl_Randevu" Type="Self.tbl_Randevu" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbl_Doktorlar">
+              <PropertyRef Name="doktorID" />
+            </Principal>
+            <Dependent Role="tbl_Randevu">
+              <PropertyRef Name="doktorID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tbl_Tedavi_tbl_Doktorlar">
+          <End Role="tbl_Doktorlar" Type="Self.tbl_Doktorlar" Multiplicity="0..1" />
+          <End Role="tbl_Tedavi" Type="Self.tbl_Tedavi" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbl_Doktorlar">
+              <PropertyRef Name="doktorID" />
+            </Principal>
+            <Dependent Role="tbl_Tedavi">
+              <PropertyRef Name="doktorID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tbl_Randevu_tbl_Hasta">
+          <End Role="tbl_Hasta" Type="Self.tbl_Hasta" Multiplicity="0..1" />
+          <End Role="tbl_Randevu" Type="Self.tbl_Randevu" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbl_Hasta">
+              <PropertyRef Name="hastaID" />
+            </Principal>
+            <Dependent Role="tbl_Randevu">
+              <PropertyRef Name="hastaID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tbl_Tedavi_tbl_Hasta">
+          <End Role="tbl_Hasta" Type="Self.tbl_Hasta" Multiplicity="0..1" />
+          <End Role="tbl_Tedavi" Type="Self.tbl_Tedavi" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbl_Hasta">
+              <PropertyRef Name="hastaID" />
+            </Principal>
+            <Dependent Role="tbl_Tedavi">
+              <PropertyRef Name="hastaID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="db_HastaneYonetimSistemiEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" />
+          <EntitySet Name="tbl_Doktorlar" EntityType="Self.tbl_Doktorlar" />
+          <EntitySet Name="tbl_Hasta" EntityType="Self.tbl_Hasta" />
+          <EntitySet Name="tbl_Randevu" EntityType="Self.tbl_Randevu" />
+          <EntitySet Name="tbl_Tedavi" EntityType="Self.tbl_Tedavi" />
+          <AssociationSet Name="FK_tbl_Randevu_tbl_Doktorlar" Association="Self.FK_tbl_Randevu_tbl_Doktorlar">
+            <End Role="tbl_Doktorlar" EntitySet="tbl_Doktorlar" />
+            <End Role="tbl_Randevu" EntitySet="tbl_Randevu" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tbl_Tedavi_tbl_Doktorlar" Association="Self.FK_tbl_Tedavi_tbl_Doktorlar">
+            <End Role="tbl_Doktorlar" EntitySet="tbl_Doktorlar" />
+            <End Role="tbl_Tedavi" EntitySet="tbl_Tedavi" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tbl_Randevu_tbl_Hasta" Association="Self.FK_tbl_Randevu_tbl_Hasta">
+            <End Role="tbl_Hasta" EntitySet="tbl_Hasta" />
+            <End Role="tbl_Randevu" EntitySet="tbl_Randevu" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tbl_Tedavi_tbl_Hasta" Association="Self.FK_tbl_Tedavi_tbl_Hasta">
+            <End Role="tbl_Hasta" EntitySet="tbl_Hasta" />
+            <End Role="tbl_Tedavi" EntitySet="tbl_Tedavi" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="db_HastaneYonetimSistemiModelStoreContainer" CdmEntityContainer="db_HastaneYonetimSistemiEntities">
+          <EntitySetMapping Name="sysdiagrams">
+            <EntityTypeMapping TypeName="db_HastaneYonetimSistemiModel.sysdiagrams">
+              <MappingFragment StoreEntitySet="sysdiagrams">
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+                <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+                <ScalarProperty Name="version" ColumnName="version" />
+                <ScalarProperty Name="definition" ColumnName="definition" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tbl_Doktorlar">
+            <EntityTypeMapping TypeName="db_HastaneYonetimSistemiModel.tbl_Doktorlar">
+              <MappingFragment StoreEntitySet="tbl_Doktorlar">
+                <ScalarProperty Name="doktorID" ColumnName="doktorID" />
+                <ScalarProperty Name="doktorAd" ColumnName="doktorAd" />
+                <ScalarProperty Name="doktorSoyad" ColumnName="doktorSoyad" />
+                <ScalarProperty Name="doktorUzmanlik" ColumnName="doktorUzmanlik" />
+                <ScalarProperty Name="durum" ColumnName="durum" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tbl_Hasta">
+            <EntityTypeMapping TypeName="db_HastaneYonetimSistemiModel.tbl_Hasta">
+              <MappingFragment StoreEntitySet="tbl_Hasta">
+                <ScalarProperty Name="hastaID" ColumnName="hastaID" />
+                <ScalarProperty Name="hastaAd" ColumnName="hastaAd" />
+                <ScalarProperty Name="hastaSoyad" ColumnName="hastaSoyad" />
+                <ScalarProperty Name="hastaTc" ColumnName="hastaTc" />
+                <ScalarProperty Name="hastaYas" ColumnName="hastaYas" />
+                <ScalarProperty Name="hastaCinsiyet" ColumnName="hastaCinsiyet" />
+                <ScalarProperty Name="kronikRahatsizlik" ColumnName="kronikRahatsizlik" />
+                <ScalarProperty Name="hastaTelefon" ColumnName="hastaTelefon" />
+                <ScalarProperty Name="kayitTarih" ColumnName="kayitTarih" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tbl_Randevu">
+            <EntityTypeMapping TypeName="db_HastaneYonetimSistemiModel.tbl_Randevu">
+              <MappingFragment StoreEntitySet="tbl_Randevu">
+                <ScalarProperty Name="randevuID" ColumnName="randevuID" />
+                <ScalarProperty Name="hastaID" ColumnName="hastaID" />
+                <ScalarProperty Name="doktorID" ColumnName="doktorID" />
+                <ScalarProperty Name="olusturmaTarih" ColumnName="olusturmaTarih" />
+                <ScalarProperty Name="randevuTarih" ColumnName="randevuTarih" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tbl_Tedavi">
+            <EntityTypeMapping TypeName="db_HastaneYonetimSistemiModel.tbl_Tedavi">
+              <MappingFragment StoreEntitySet="tbl_Tedavi">
+                <ScalarProperty Name="tedaviID" ColumnName="tedaviID" />
+                <ScalarProperty Name="hastaID" ColumnName="hastaID" />
+                <ScalarProperty Name="doktorID" ColumnName="doktorID" />
+                <ScalarProperty Name="tedaviIcerik" ColumnName="tedaviIcerik" />
+                <ScalarProperty Name="tarih" ColumnName="tarih" />
+                <ScalarProperty Name="recete" ColumnName="recete" />
+                <ScalarProperty Name="fiyat" ColumnName="fiyat" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

@@ -1,0 +1,35 @@
+﻿@using mvcHastane.Models
+@model List<mvcHastane.Models.tbl_Doktorlar>
+@{
+    ViewBag.Title = "doktorListele";
+    Layout = "~/Views/Shared/_MainLayout.cshtml";
+}
+<div style="background-color:#1c1c1c; color:white; border-radius:15px;">
+    <h1>DOKTOR LİSTESİ</h1>
+</div>
+<table class="table table-bordered table-dark" style="background-color:#1c1c1c; color:white; border-radius:15px;">
+    <thead>
+        <tr>
+            <th>DOKTOR İD</th>
+            <th>ADI</th>
+            <th>SOYADI</th>
+            <th>UZMANLIK ALANI</th>
+            <th>AKTİF ÇALIŞMA DURUMU</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var dkt in Model)
+        {
+            <tr>
+                <th style="color:#FFC300;">@dkt.doktorID</th>
+                <td>@dkt.doktorAd</td>
+                <td>@dkt.doktorSoyad</td>
+                <td>@dkt.doktorUzmanlik</td>
+                <td>@dkt.durum</td>
+                <td><a href="/Doktor/Sil/@dkt.doktorID" class="btn btn-danger">SİL</a></td>
+                <td><a href="/Doktor/doktorGetir/@dkt.doktorID" class="btn btn-primary">GÜNCELLE</a></td>
+            </tr>
+        }
+    </tbody>
+</table>
+<a href="/Doktor/DoktorEkle" class=" btn btn-warning">YENİ DOKTOR EKLE</a>

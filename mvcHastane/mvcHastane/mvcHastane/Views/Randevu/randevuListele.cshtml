@@ -1,0 +1,36 @@
+﻿@using mvcHastane.Models
+@model List<mvcHastane.Models.tbl_Randevu>
+@{
+    ViewBag.Title = "randevuListele";
+    Layout = "~/Views/Shared/_MainLayout.cshtml";
+}
+<div style="background-color:#1c1c1c; color:white; border-radius:15px;">
+    <h1>RANDEVU LİSTESİ</h1>
+</div>
+<table class="table table-bordered table-dark" style="background-color:#1c1c1c; color:white; border-radius:15px;">
+    <thead>
+        <tr>
+            <th>RANDEVU İD</th>
+            <th>ŞU HASTA</th>
+            <th>ŞU DOKTORA</th>
+            <th>ŞU TARİHTE</th>
+            <th>ŞU TARİHE</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var rnd in Model)
+        {
+            <tr>
+                <th style="color:#FFC300;">@rnd.randevuID</th>
+                <td>@rnd.tbl_Hasta.hastaAd &nbsp; @rnd.tbl_Hasta.hastaSoyad</td>
+                <td>@rnd.tbl_Doktorlar.doktorAd &nbsp; @rnd.tbl_Doktorlar.doktorSoyad</td>
+                <td>@rnd.olusturmaTarih</td>
+                <td style="color:darkred;">@rnd.randevuTarih</td>
+                <td><a href="/Randevu/Sil/@rnd.randevuID" class="btn btn-danger">SİL</a></td>
+                <td><a href="/Randevu/RandevuGetir/@rnd.randevuID" class="btn btn-primary">GÜNCELLE</a></td>
+            </tr>
+        }
+    </tbody>
+</table>
+<a href="/Randevu/RandevuEkle" class=" btn btn-warning">YENİ RANDEVU EKLE</a>
+

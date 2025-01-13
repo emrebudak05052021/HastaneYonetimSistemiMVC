@@ -1,0 +1,83 @@
+﻿@using mvcHastane.Models
+@model mvcHastane.Models.tbl_Hasta
+@{
+    ViewBag.Title = "HastaEkle";
+    Layout = "~/Views/Shared/_MainLayout.cshtml";
+}
+
+<form method="post" class="form-group">
+    <table class="table table-bordered table-dark" style="background-color:#1c1c1c; color:white; border-radius:15px;">
+        <tr>
+            <td>HASTA ADI:</td>
+        </tr>
+        <tr>
+            <td>
+                @Html.TextBoxFor(x => x.hastaAd, new { @class = "form-control" })
+            </td>
+        </tr>
+
+        <tr>
+            <td>HASTA SOYADI:</td>
+        </tr>
+        <tr>
+            <td>
+                @Html.TextBoxFor(x => x.hastaSoyad, new { @class = "form-control" })
+            </td>
+        </tr>
+
+        <tr>
+            <td>HASTA TC:</td>
+        </tr>
+        <tr>
+            <td>
+                @Html.TextBoxFor(x => x.hastaTc, new { @class = "form-control",@maxlenght="11" ,@PlaceHolder="Sadece 11 karakter...!" })
+            </td>
+        </tr>
+
+        <tr>
+            <td>HASTA YAŞI:</td>
+        </tr>
+        <tr>
+            <td>
+                @Html.TextBoxFor(x => x.hastaYas, new { @class = "form-control" })
+            </td>
+        </tr>
+
+        <tr>
+            <td>HASTA CİNSİYETİ:</td>
+        </tr>
+        <tr>
+            <td>
+                @Html.TextBoxFor(x => x.hastaCinsiyet, new { @class = "form-control" })
+            </td>
+        </tr>
+
+        <tr>
+            <td>KRONİK RAHATSIZLIĞI ( EVET: 1 | HAYIR: 0 ):</td>
+        </tr>
+        <tr>
+            <td>
+                @Html.TextBoxFor(x => x.kronikRahatsizlik, new { @class = "form-control" })
+            </td>
+        </tr>
+
+        <tr>
+            <td>HASTA TELEFONU:</td>
+        </tr>
+        <tr>
+            <td>
+                @Html.TextBoxFor(x => x.hastaTelefon, new { @class = "form-control" ,Type="tel" })
+            </td>
+        </tr>
+
+        <tr>
+            <td>KAYIT TARİHİ:</td>
+        </tr>
+        <tr>
+            <td>
+                @Html.TextBoxFor(x => x.kayitTarih, new { @class = "form-control" , Type="date"})
+            </td>
+        </tr>
+    </table>
+    <button class="btn btn-warning">YENİ HASTA EKLE</button>
+</form>
